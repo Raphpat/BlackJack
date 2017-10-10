@@ -25,16 +25,16 @@ def comparaisons1(j1, j2):
     if j1 > 21 and j2 > 21:
         retourScores(j1, j2)
         print("Partie Nulle")
-        return true
+        return True
     elif j1 > 21:
         retourScores(j1, j2)
         print("Vous avez perdu, la banque a gagné")
         #Possibilité compter score
-        return true
+        return True
     elif j2 > 21:
         retourScores(j1, j2)
         print("Vous avez gagné, la banque a perdu")
-        return true
+        return True
     
     
 
@@ -49,4 +49,10 @@ scoreBanque = lancé(x)
     #print(scoreBanque)
 end = comparaisons1(scoreJoueur, scoreBanque)
 relance = str(input("Voulez vous relancer? (y/n): "))
-print(relance)
+while relance == 'y':
+    x = int(input('Nombre de dés lancés: '))
+    scoreJoueur = lancé(x)
+    end = comparaisons1(scoreJoueur, scoreBanque)
+    if end == True:
+        break
+    relance = str(input("Voulez vous relancer? (y/n): "))
