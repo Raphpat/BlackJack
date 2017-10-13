@@ -19,13 +19,16 @@ def lance(nb):
 
 #Fonction pour imprimer les 2 scores
 def retourScores(j1, j2):
+    print("--") #Problème de lisibilitté, ici remédié par les "--"
     print("Score joueur: ", j1)
     print("Score banque: ", j2)
 
 def retourResultats():
+    print("--")
     print("Victoires joueur: ", resultats[0])
     print("Victoires banque: ", resultats[1])
     print("Parties nulles: ", resultats[2])
+    print("--")
 
 #Premières comparaisons, pour voir si la partie n'est pas finie d'office
 #(quelqu'un au dessus de 21)
@@ -61,6 +64,21 @@ def comparaisons2(j1, j2):
         print("Partie Nulle")
         resultats[2] += 1
 
+#Définition de la difficulté, qui augmente ou diminue le score de la banque de 1 ou 2
+print("Définir la difficulté: Facile, Moyen, Difficile, Extreme")
+print("Difficulté moyenne par défaut")
+difficulte = str(input('Difficulté: '))
+modif = 0
+if difficulte == 'Facile':
+    modif = -1
+elif difficulte == 'Difficile':
+    modif = 1
+elif difficulte == 'Extreme':
+    modif = 2
+else:
+    modif = 0
+
+#Variable pour le while
 rejouer = 'y'
 #Variable des victoires du joueur, de la banque et nul
 resultats =[0 for i in range(3)]
@@ -71,10 +89,12 @@ resultats =[0 for i in range(3)]
 #une manche
 while rejouer == 'y':
     x = int(input('Nombre de dés lancés: '))
+    print("--")
     scoreJoueur = lance(x)
     print("Votre score: ", scoreJoueur)
-    scoreBanque = lance(x)
-    #print(scoreBanque)
+    print("--")
+    scoreBanque = lance(x) + modif
+    #print("Score banque: ", scoreBanque)
     end = comparaisons1(scoreJoueur, scoreBanque)
     #Si tout le monde <21 le jeu continue
     if end == False:
@@ -82,8 +102,10 @@ while rejouer == 'y':
         #Boucle de relance des dés pour le joueur
         while relance == 'y':
             x = int(input('Nombre de dés lancés: '))
+            print("--")
             scoreJoueur = lance(x)
             print("Votre score: ", scoreJoueur)
+            print("--")
             end = comparaisons1(scoreJoueur, scoreBanque)
             if end == True:
                 break
@@ -95,3 +117,4 @@ while rejouer == 'y':
     rejouer = str(input("Voulez vous rejouer? (y/n): "))
 print("Fin de la partie")
 retourResultats()
+
