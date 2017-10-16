@@ -43,6 +43,9 @@ def nbrdelances():
             relance=str(input("Voulez vous relancer les dés y/n ?"))
     return()
 
+print("Le but du jeu est d'atteindre 21 à l'aide de plusieurs lancés de dés successifs")
+print("Vous jouez contre la banque, qui lance autant de dés que vous.")
+
 reponse="y"
 while reponse=="y":                                 #boucle partie
     nbrdelances()
