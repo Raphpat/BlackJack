@@ -44,7 +44,7 @@ def nbrdelances():
     return()
 
 reponse="y"
-while reponse=="y":
+while reponse=="y":                                 #boucle partie
     nbrdelances()
     print("Le score est à ",victoire_banque," pour la banque contre ",victoire_joueur," pour vous.")
     reponse = str(input("Voulez vous rejouer y/n ?" ))
