@@ -2,7 +2,7 @@ from random import *
 victoire_joueur=0                                   #r correspond au nbr de parties gagnées par le joueur
 victoire_banque=0                                   #e correspond au nbr de parties gagnées par la banque
 
-def nbrdelancés():
+def nbrdelances():
     global victoire_joueur                          #permet de faire appel et de modifier une variable en dehors de l'espace de la fonction
     global victoire_banque
     h=0                                             #h correspond au score du joueur
@@ -16,7 +16,15 @@ def nbrdelancés():
             print("lancé",i+1,":",j)
             h=h+j
             g=g+b
-        if g>21 and h>21:
+        if g==21 and h!=21:
+            relance="n"
+            victoire_banque=victoire_banque+1       #pour comptabiliser les parties gagnées
+            print("La banque est à 21 et vous êtes à ",h,"la banque a gagnée.")
+        elif g!=21 and h==21:
+            relance="n"
+            victoire_joueur=victoire_joueur+1       #pour comptabiliser les parties gagnées
+            print("La banque est à ",g," et vous êtes à 21, vous avez gagné.")
+        elif g>21 and h>21:
             relance="n"
             print("La banque est à ",g," et vous êtes à ",h,", la partie est nulle.")
         elif g>21:
@@ -25,14 +33,6 @@ def nbrdelancés():
         elif h>21:
             relance="n"
             print("La banque est à ",g," et vous êtes à ",h,", vous avez perdu.")
-        elif g==21 and h!=21:
-            relance="n"
-            victoire_banque=victoire_banque+1       #pour comptabiliser les parties gagnées
-            print("La banque est à 21 et vous êtes à ",h,"la banque a gagnée. Le score est à ",victoire_banque," pour la banque contre ",victoire_joueur," pour vous.")
-        elif g!=21 and h==21:
-            relance="n"
-            victoire_joueur=victoire_joueur+1       #pour comptabiliser les parties gagnées
-            print("La banque est à ",g," et vous êtes à 21, vous avez gagné. Le score est à",victoire_banque," pour la banque contre ",victoire_joueur," pour vous.")
         elif g==21 and h==21:
             relance="n"
             victoire_banque=victoire_banque+1
@@ -45,5 +45,6 @@ def nbrdelancés():
 
 reponse="y"
 while reponse=="y":
-    nbrdelancés()
-    reponse=str(input("Voulez vous rejouer y/n ?" ))
+    nbrdelances()
+    print("Le score est à ",victoire_banque," pour la banque contre ",victoire_joueur," pour vous.")
+    reponse = str(input("Voulez vous rejouer y/n ?" ))
