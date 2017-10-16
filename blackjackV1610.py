@@ -100,18 +100,18 @@ while rejouer == 'y':
     scoreJoueur = lance(x)
     print("Votre score: ", scoreJoueur)
     print("--")
-    scoreBanque = lance(x)
+    scoreBanque = modif + lance(x)
     #print("Score banque: ", scoreBanque)
     end = comparaisons1(scoreJoueur, scoreBanque)
     #Si tout le monde <21 le jeu continue
     if end == False:
+        print("Attention, le score des dés lancées s'ajouteront à votre score actuel!")
         relance = str(input("Voulez vous relancer? (y/n): "))
         #Boucle de relance des dés pour le joueur
         while relance == 'y':
             x = int(input('Nombre de dés lancés: '))
             print("--")
-            scoreJoueur = lance(x)
-            scoreBanque = lance(x)
+            scoreJoueur += lance(x)
             print("Votre score: ", scoreJoueur)
             print("--")
             end = comparaisons1(scoreJoueur, scoreBanque)
