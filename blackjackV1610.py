@@ -14,7 +14,7 @@ def lance(nb):
     for i in range(nb):
         des[i] = randint(1,6)
     #print(des)
-    total = sum(des) #méthode sum() trouvée en ligne
+    total = sum(des) #Méthode sum() trouvée en ligne
     return(total)
 
 #Fonction pour imprimer les 2 scores
@@ -64,6 +64,14 @@ def comparaisons2(j1, j2):
         print("Partie Nulle")
         resultats[2] += 1
 
+#fin de la définition des fonctions
+
+
+
+print("Ce jeu est un Blackjack, qui oppose un joueur à l'ordinateur.")
+print("Le but est d'être le plus proche possible de 21, sans le dépasser")
+print("--")
+
 #Définition de la difficulté, qui augmente ou diminue le score de la banque de 1 ou 2
 print("Définir la difficulté: Facile, Moyen, Difficile, Extreme")
 print("Difficulté moyenne par défaut")
@@ -82,7 +90,6 @@ else:
 rejouer = 'y'
 #Variable des victoires du joueur, de la banque et nul
 resultats =[0 for i in range(3)]
-#print(resultats)
 
 #Début, lancé de tout les dés, sortie du scoreJoueur
 #Initialisation de la boucle de tour de jeu qui contient le code pour
@@ -93,7 +100,7 @@ while rejouer == 'y':
     scoreJoueur = lance(x)
     print("Votre score: ", scoreJoueur)
     print("--")
-    scoreBanque = lance(x) + modif
+    scoreBanque = lance(x)
     #print("Score banque: ", scoreBanque)
     end = comparaisons1(scoreJoueur, scoreBanque)
     #Si tout le monde <21 le jeu continue
@@ -104,6 +111,7 @@ while rejouer == 'y':
             x = int(input('Nombre de dés lancés: '))
             print("--")
             scoreJoueur = lance(x)
+            scoreBanque = lance(x)
             print("Votre score: ", scoreJoueur)
             print("--")
             end = comparaisons1(scoreJoueur, scoreBanque)
