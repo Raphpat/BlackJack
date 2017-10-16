@@ -16,15 +16,15 @@ def nbrdelancés():
             print("lancé",i+1,":",j)
             h=h+j
             g=g+b
-        if g>21 and h<21:
-            relance="n"
-            print("La banque est à ",g," et vous êtes à ",h,", la banque a perdu.")
-        elif g<21 and h>21:
-            relance="n"
-            print("La banque est à ",g," et vous êtes à ",h,", vous avez perdu.")
-        elif g>21 and h>21:
+        if g>21 and h>21:
             relance="n"
             print("La banque est à ",g," et vous êtes à ",h,", la partie est nulle.")
+        elif g>21:
+            relance="n"
+            print("La banque est à ",g," et vous êtes à ",h,", la banque a perdu.")
+        elif h>21:
+            relance="n"
+            print("La banque est à ",g," et vous êtes à ",h,", vous avez perdu.")
         elif g==21 and h!=21:
             relance="n"
             victoire_banque=victoire_banque+1       #pour comptabiliser les parties gagnées
