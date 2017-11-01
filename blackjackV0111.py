@@ -111,14 +111,16 @@ while rejouer == 'y':
         while relance == 'y':
             x = int(input('Nombre de dés lancés: '))
             print("--")
-            scoreJoueur += lance(x)
+            scoreJoueur = lance(x)
+            scoreBanque = modif + lance(x)
             print("Votre score: ", scoreJoueur)
             print("--")
             end = comparaisons1(scoreJoueur, scoreBanque)
             if end == True:
                 break
             relance = str(input("Voulez vous relancer? (y/n): "))
-        comparaisons2(scoreJoueur, scoreBanque)
+        if end == False:
+            comparaisons2(scoreJoueur, scoreBanque)
     else:
         print("Fin du tour")
     retourResultats()
