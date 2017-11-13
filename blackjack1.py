@@ -1,4 +1,5 @@
 #BlackJack:
+#La version plus 'développée'
 #Lancé de X dés
 # par le Joueur et l'ordi
 # dés = [1;6] --> randint(a,b) (lecture de la documentation random)
