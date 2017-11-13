@@ -1,3 +1,4 @@
+#La version blackjack plus 'simple'
 from random import *
 victoire_joueur=0                                   #r correspond au nbr de parties gagnées par le joueur
 victoire_banque=0                                   #e correspond au nbr de parties gagnées par la banque
